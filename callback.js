@@ -30,13 +30,14 @@ function guessNubmer() {
         else if (+cmd > numberToGuess) {
             console.log("Вы не угадали! Загаданное число меньше введённого");
             console.log("Попытка №:", cnt1());
+            guessNubmer();
         }
         else if (+cmd < numberToGuess) {
             console.log("Вы не угадали! Загаданное число больше введённого");
             console.log("Попытка №:", cnt1())
             guessNubmer();
         }
-    }    console.log("!!!"))
+    })
 
 }
 guessNubmer();

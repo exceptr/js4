@@ -1,4 +1,4 @@
-const r1 = require('readline').createInterface(process.stdin, process.stdout);
+const r1 = require('node:readline/promises').createInterface(process.stdin, process.stdout);
 
 function getCounter(start=0) {
     let counter = start;
@@ -12,15 +12,8 @@ const cnt1 = getCounter();
 function guessNubmer() {
     const numberToGuess = Math.floor(Math.random() * 1000);
     console.log("Загаданное число:", numberToGuess);
-    function numberFromUser (quest) {
-        return new Promise((resolve, reject) => {
-            r1.question(quest, (data) => {
-                resolve(data)
-            })
-        })
-    }
     (async () => {
-        cmd = await numberFromUser("Введите число от 0 до 999: ")
+        cmd = await r1.question("Введите число от 0 до 999: ")
         console.log(cmd);
         if (cmd === "q") {
             r1.close();
